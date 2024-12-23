@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+   
+    <link rel="stylesheet" href="styles.css" />
+    <title>YojanaManch</title>
+  </head>
+  <body>
+    <style>
+        @font-face {
+            font-family: 'colfax-light';
+            src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal
+        }
+
+        @font-face {
+            font-family: 'colfax-medium';
+            src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal
+        }
+
+        @font-face {
+            font-family: 'colfax-bold';
+            src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal
+        }
+
+        @font-face {
+            font-family: 'colfax-light';
+            src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal
+        }
+
+        @font-face {
+            font-family: 'colfax-medium';
+            src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal
+        }
+
+        @font-face {
+            font-family: 'colfax-bold';
+            src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal
+        }
+
+
+
+        /* Global Styles */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Aligns items from the top */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color:rgba(179, 220, 228, 0.315); /* Background color for the entire page */
+        }
+
+        .login_body {
+            position: relative;
+            width: 50%;
+            border-radius: 200px;
+        }
+
+        /* Outer Container */
+        .outer_container {
+            flex-grow: 1; /* Allows the main content to grow and fill available space */
+            padding: 0px;
+            width: 100%; 
+            position: center;
+            border-radius: 12px;
+            background-color: #ffffff; /* Background color for the outer container */
+            margin: 30px; /* Space between navbar and outer container */
+        }
+
+        /* Login Container */
+        .login_container {
+            background-color: #F9F7F7; /* Background color for the login container */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for the login container */
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Form Title */
+        .login_form h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Input Groups */
+        .input_group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input_group label {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .input_group input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .input_group input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        /* CAPTCHA Container */
+        .captcha_container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .preview {
+            display: inline-block;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        /* CAPTCHA Refresh Button */
+        .captcha_refresh {
+            background: #007BFF;
+            border: none;
+            padding: 5px 10px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .captcha_refresh:hover {
+            background: #0056b3;
+        }
+
+        /* Form Buttons */
+        .form_button,
+        #login-toggle {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e88e5;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form_button:hover,
+        #login-toggle:hover {
+            background-color: rgb(16, 105, 207);
+        }
+
+        /* Fieldset */
+        fieldset {
+            border: none; /* Removes the border */
+            padding: 0; /* Removes any extra padding */
+            margin: 0; /* Removes any extra margin */
+        }
+
+        /* Extra Links */
+        .extra_links {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .extra_links a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+
+        .extra_links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Phone Number and OTP Styles */
+        #login-with-phone-number {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 16px;
+        }
+
+        #otp-btn,
+        .btn {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        #otp_inp {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .otpverify {
+            padding-bottom: 1.5rem;
+        }
+
+        #otp-btn:hover,
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            padding-right:  70px;
+            padding-left: 70px;
+            padding-top: 0px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: -80px;
+            margin-bottom: -0px;
+            font-size: 30px;
+            z-index: 100000000;
+
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .navbar-logo img {
+            height: 60px; /* Adjust as needed */
+            width: auto;
+        }
+
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-links li {
+            margin-right: 20px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: #333; /* Adjust text color */
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            padding: 8px 12px;
+        }
+
+        .navbar-links a:hover {
+            color: #007bff; /* Hover color */
+            transition: color 0.3s ease;
+        }
+
+        /* Footer Styles */
+        footer {
+            position: relative; /* Ensures the footer stays in the normal flow */
+            z-index: 10; /* Lower z-index value */
+            background-color:#F9F7F7; /* Background color for the footer */
+            color: #333;
+            width: 100%;
+            margin-top: 1%;    
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-top {
+            background-color: #2678fc;
+            padding: 40px 0;
+            color: #fff;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .footer-content {
+            padding-top: 1%;
+        }
+
+        .footer-content .widget {
+            margin-bottom: 40px;
+        }
+
+        .footer-content a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-content .widget-title {
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-content .ft-links li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .footer-content .ft-links li a {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-content .ft-links li a:hover {
+            color: #d4e0ff;
+        }
+
+    </style>
+  <div style="background-color: white; width: 100%; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;" class="container">
+    <nav>
+        <div  class="nav__header">
+          <div class="nav__logo">
+            <a href="#" class="logo">
+              <img class="logo_img" style="height: 80%; width: 80%;" src="/assets/yojanamanch_logo_copy.png" alt="yojanamanch_logo">
+            </a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="/index.html">HOME</a></li>
+            <li><a href="/dashboard/dashboard.html">DASHBOARD</a></li>
+            <li><a href="/request/request.html">REQUEST</a></li>
+            <li><a href="/projects/projects.html">PROJECTS</a></li>
+            <li><a href="/contactPage/contact_faq.html">CONTACT</a></li>
+            <li><a href="/help.html">HELP</a></li>
+        </ul>
+        <div class="nav__btns">
+          <form action="/registrationPage/registration.html">
+              <button class="btn">REGISTER</button>
+          </form>
+        </div>
+      </nav>
+</div>  
+    <div class="login_body" style="display: inline;">
+        <div class="outer_container">
+            <div class="login_container">
+                <form class="login_form">
+                    <h2>Login</h2>
+    
+                    <!-- Email and Password Fieldset -->
+                    <fieldset id="email-login">
+                        <div class="input_group">
+                            <label for="email">Email ID</label>
+                            <input type="email" id="email" placeholder="Enter Email Address" required>
+                        </div>
+                        <div class="input_group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter Password" required>
+                        </div>
+                        <div class="captcha_container">
+                            <div class="preview"></div>
+                            <button type="button" class="captcha_refresh">↻</button>
+                        </div>
+                        <div class="input_group">
+                            <input type="text" id="captcha_input" placeholder="Enter CAPTCHA" required>
+                        </div>
+                    </fieldset>
+    
+                    <!-- Phone Number Fieldset (Initially Hidden) -->
+                    <fieldset id="phone-login" style="display: none;">
+                        <div class="input_group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter Phone Number" required>
+                        </div>
+                        <div class="otpverify">
+                            <input type="text" id="otp_inp" placeholder="Enter the OTP">
+                            <button class="btn" id="send-otp-btn">Send OTP</button>
+                        </div>
+                    </fieldset>
+    
+                    <button type="button" class="form_button" id="login-button">Log In</button>
+                    <center><h3>OR</h3></center>
+                    <button id="login-toggle">Login with phone number</button><br><br>
+    
+                    <div class="extra_links">
+                        <a href="#">Forgot Login Details?</a>
+                        <a href="#">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">
+                <img style="height: 50%; width: 50%;" src="/assets/yojanamanch_logo_copy.png" alt="">
+            </a>
+          </div>
+          <p>
+            YojanaManch is a platform for government officials to collaborate, discuss, 
+            and streamline plans and workflows, fostering unified governance for coordinated 
+            progress under the vision "समान सोच, संगठित विकास."
+          </p>
+          <ul class="footer__socials">
+            <li>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-youtube-line"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Chat</a></li>
+            <li><a href="#">Request</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="#">
+                <span><i class="ri-phone-fill"></i></span> +91 9876543210
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-record-mail-line"></i></span> info@yojanamanch
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-map-pin-2-fill"></i></span> New Delhi, India
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Subscribe</h4>
+          <form action="/">
+            <input type="text" placeholder="Enter your email" />
+            <button class="btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bar" style="margin-top: -55px">
+        Copyright © 2024 YojanaManch. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/main.js"></script>
+    <script>
+        (function() {
+            const fonts = ["cursive", "serif", "sans-serif", "monospace", "fantasy"];
+            const colors = ["#000000", "#1F618D", "#117A65", "#9C640C", "#78281F"];
+            let captchaValue = "";
+            const hardCodedOTP = "1234"; // Hard-coded OTP
+            let otpSent = false; // Flag to track if OTP has been sent
+
+            function gencaptcha() {
+                let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                captchaValue = "";
+                for (let i = 0; i < 7; i++) {
+                    captchaValue += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+            }
+
+            function setcaptcha() {
+                let html = captchaValue.split("").map((char) => {
+                    const rotate = -20 + Math.trunc(Math.random() * 40);
+                    const font = fonts[Math.floor(Math.random() * fonts.length)];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const size = 20 + Math.trunc(Math.random() * 10);
+                    return `<span
+                                style="
+                                transform:rotate(${rotate}deg);
+                                font-family:${font};
+                                color:${color};
+                                font-size:${size}px;
+                                "
+                            >${char}</span>`;
+                }).join("");
+                document.querySelector(".login_form .preview").innerHTML = html;
+            }
+
+            function initCaptcha() {
+                document.querySelector(".captcha_refresh").addEventListener("click", function() {
+                    gencaptcha();
+                    setcaptcha();
+                });
+
+                gencaptcha();
+                setcaptcha();
+            }
+
+            initCaptcha();
+
+            document.querySelector("#login-button").addEventListener("click", function() {
+                const emailFieldset = document.getElementById("email-login");
+                const phoneFieldset = document.getElementById("phone-login");
+
+                if (emailFieldset.style.display === "block") {
+                    // Email and Password Validation
+                    let inputCaptchaValue = document.querySelector("#captcha_input").value;
+
+                    if (inputCaptchaValue === captchaValue) {
+                        alert("Log in success");
+                        window.location.href = "index.html"; // Redirect to index.html
+                    } else {
+                        alert("Invalid Captcha");
+                    }
+                } else if (phoneFieldset.style.display === "block") {
+                    // Phone Number and OTP Validation
+                    const otpInput = document.getElementById("otp_inp").value;
+
+                    if (!otpSent) {
+                        alert("Invalid OTP");
+                        return;
+                    }
+
+                    if (otpInput === hardCodedOTP) {
+                        alert("Logged in successfully");
+                        window.location.href = "index.html"; // Redirect to index.html
+                    } else {
+                        alert("Invalid OTP");
+                    }
+                }
+            });
+
+            // Toggle between Email and Phone Login Fieldsets
+            document.querySelector("#login-toggle").addEventListener("click", function(event) {
+                event.preventDefault();
+                const emailFieldset = document.getElementById("email-login");
+                const phoneFieldset = document.getElementById("phone-login");
+                const toggleLink = document.getElementById("login-toggle");
+
+                if (emailFieldset.style.display === "none") {
+                    emailFieldset.style.display = "block";
+                    phoneFieldset.style.display = "none";
+                    toggleLink.textContent = "Login with phone number";
+                } else {
+                    emailFieldset.style.display = "none";
+                    phoneFieldset.style.display = "block";
+                    toggleLink.textContent = "Login with email ID";
+                }
+            });
+
+            // Send OTP Functionality
+            function sendOTP() {
+                const sendOtpBtn = document.getElementById("send-otp-btn");
+                const verifyBtn = document.getElementById("otp-btn");
+
+                alert("OTP Sent");
+                sendOtpBtn.textContent = "Resend OTP";
+                sendOtpBtn.disabled = true;
+                otpSent = true; // Set flag to true after sending OTP
+
+                setTimeout(() => {
+                    verifyBtn.disabled = false;
+                }, 1200);
+            }
+
+            // Attach the sendOTP function to the Send OTP button
+            document.getElementById("send-otp-btn").addEventListener("click", sendOTP);
+        })();
+    </script>
+
+  </body>
+</html>

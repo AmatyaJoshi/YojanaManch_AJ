@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://www.pmindia.gov.in/wp-content/themes/pmindia2015/images/favicon.ico" type="image/x-icon">
+  <title>YojanaManch - Registration</title>
+  <script src="/Default/assets/plugins/jquery/jquery.min.js"></script>
+	<script src="/Default/assets/plugins/bootstrapvalidator/bootstrapValidator.js"></script>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+  <link rel="stylesheet" href="/registrationPage/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+  <style>
+    @font-face {
+        font-family: 'colfax-light';
+        src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal
+    }
+
+    @font-face {
+        font-family: 'colfax-medium';
+        src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal
+    }
+
+    @font-face {
+        font-family: 'colfax-bold';
+        src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal
+    }
+
+    @font-face {
+        font-family: 'colfax-light';
+        src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal
+    }
+
+    @font-face {
+        font-family: 'colfax-medium';
+        src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal
+    }
+
+    @font-face {
+        font-family: 'colfax-bold';
+        src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal
+    }
+
+
+      /* Footer Styles */
+      footer {
+            position: relative; /* Ensures the footer stays in the normal flow */
+            z-index: 10; /* Lower z-index value */
+            background-color:#D6E6F2; /* Background color for the footer */
+            color: #333;
+            width: 100%;
+            margin-top: 1%;    
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-top {
+            background-color: #2678fc;
+            padding: 40px 0;
+            color: #fff;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .footer-content {
+            padding-top: 1%;
+        }
+
+        .footer-content .widget {
+            margin-bottom: 40px;
+        }
+
+        .footer-content a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-content .widget-title {
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-content .ft-links li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .footer-content .ft-links li a {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-content .ft-links li a:hover {
+            color: #d4e0ff;
+        }
+
+</style>
+
+<div style="background-color: #ccedfc;; width: 100%; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;" class="nav-container">
+  <nav>
+      <div  class="nav__header">
+        <div class="nav__logo">
+          <a href="#" class="logo">
+            <img class="logo_img" style="height: 80%; width: 80%;" src="/assets/yojanamanch_logo_copy.png" alt="yojanamanch_logo">
+          </a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+          <li><a href="/index.html">HOME</a></li>
+          <li><a href="/dashboard/dashboard.html">DASHBOARD</a></li>
+          <li><a href="/request/request.html">REQUEST</a></li>
+          <li><a href="/projects/projects.html">PROJECTS</a></li>
+          <li><a href="/contactPage/contact_faq.html">CONTACT</a></li>
+          <li><a href="/help.html">HELP</a></li>
+      </ul>
+      <div class="nav__btns">
+        <form action="/loginPage/login_page.html">
+          <button style="margin-left: 10px;" class="btn">LOGIN</button>
+        </form>
+      </div>
+    </nav>
+</div>
+  
+  <div class="container-fluid" name="start">
+    <div class="row justify-content-center">
+      <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+        <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+
+          <form id="msform">
+          <h2 id="heading">User Register</h2>
+          <p>Fill all form field to go to the next step</p>
+          
+            <!-- progressbar -->
+            <ul id="progressbar">
+              <li class="active" id="account"><strong>Personal Details</strong></li>
+              <li id="personal"><strong>Startup & Bank Details</strong></li>
+              <li id="payment"><strong>Verification</strong></li>
+              <li id="confirm"><strong>Approval Tracking</strong></li>
+            </ul>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> <br>
+    
+            <!-- Personal Details -->
+            <fieldset>
+                <div class="form-card personal-details justify-content-left">
+                  <div class="row">
+                    <div class="col-6">
+                      <h2 class="fs-title">Personal Details</h2>
+                    </div>
+                    <div class="col-5">
+                      <h2 class="steps">Step 1 - 4</h2>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <label class="fieldlabels">Aadhar Id: *</label>
+                      <input type="number" name="aadhar_id" placeholder="Aadhar Id" required />
+                    </div>
+                    <div class="col-4">
+                      <label class="fieldlabels">Yojana Id: *</label>
+                      <input type="number" name="aayush_id" placeholder="Yojana Id" required />
+                    </div>
+                    <div class="col-2" style="margin-top: 23px;">
+                      <button type="button"  style="border-radius: 40px; height: 43px;" class="action-button">Verify</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                      <label class="fieldlabels">First Name: *</label>
+                      <input type="text" name="first_name" placeholder="First Name" required />
+                    </div>
+                    <div class="col-4">
+                      <label class="fieldlabels">Last Name: *</label>
+                      <input type="text" name="last_name" placeholder="Last Name" required />
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-4">
+                      <label class="fieldlabels">Email: *</label>
+                      <input type="email" name="last_name" placeholder="Email" required />
+                    </div>
+                    <div class="col-4">
+                      <label class="fieldlabels">Mobile Number: *</label>
+                      <input type="text" name="last_name" placeholder="Mobile Number" required />
+                    </div>
+                    <div class="col-2" style="margin-top: 23px;">
+                      <button type="button"  style="border-radius: 40px; height: 43px;" class="action-button">Verify</button>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-5">
+                      <label class="fieldlabels">Password: *</label>
+                      <input type="password" name="pwd" placeholder="Password" required />
+                    </div>
+                    <div class="col-5">
+                      <label class="fieldlabels">Confirm Password: *</label>
+                      <input type="password" name="cpwd" placeholder="Confirm Password" required />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-5">
+                          <label class="fieldlabels">Gender *</label>
+                          <select name="startup_type" placeholder="Gender" required>
+                            <option value="">Gender</option>
+                            <option value="">Male</option>
+                            <option value="">Female</option>
+                            <option value="">Transgender</option>
+                          </select>
+                      </div>  
+                  </div>
+                  <div class="row">
+                    <div class="col-4">
+                        <label class="fieldlabels1">Select Country: *</label>
+                        <select name="country-names" id="country-names">
+                            <option value="">Select Country</option>
+                            <option value="India">India</option>
+                        </select>
+                    </div>
+                   
+                    <div class="col-3">
+                        <label class="fieldlabels1">Select State: *</label>
+                        <select name="state-names" id="state-names" onchange="updateDistricts()">
+                          <option value="">Select State</option>
+                          <!-- Options for states -->
+                          <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                          <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                          <option value="ASSAM">ASSAM</option>
+                          <option value="BIHAR">BIHAR</option>
+                          <option value="CHANDIGARH">CHANDIGARH</option>
+                          <option value="CHHATTISGARH">CHHATTISGARH</option>
+                          <option value="DELHI">DELHI</option>
+                          <option value="GOA">GOA</option>
+                          <option value="GUJARAT">GUJARAT</option>
+                          <option value="HARYANA">HARYANA</option>
+                          <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                          <option value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                          <option value="JHARKHAND">JHARKHAND</option>
+                          <option value="KARNATAKA">KARNATAKA</option>
+                          <option value="KERALA">KERALA</option>
+                          <option value="LADAKH">LADAKH</option>
+                          <option value="LAKSHADWEEP">LAKSHADWEEP</option>
+                          <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                          <option value="MAHARASHTRA">MAHARASHTRA</option>
+                          <option value="MANIPUR">MANIPUR</option>
+                          <option value="MEGHALAYA">MEGHALAYA</option>
+                          <option value="MIZORAM">MIZORAM</option>
+                          <option value="NAGALAND">NAGALAND</option>
+                          <option value="ODISHA">ODISHA</option>
+                          <option value="PUDUCHERRY">PUDUCHERRY</option>
+                          <option value="PUNJAB">PUNJAB</option>
+                          <option value="RAJASTHAN">RAJASTHAN</option>
+                          <option value="SIKKIM">SIKKIM</option>
+                          <option value="TAMIL NADU">TAMIL NADU</option>
+                          <option value="TELANGANA">TELANGANA</option>
+                          <option value="TRIPURA">TRIPURA</option>
+                          <option value="UTTARAKHAND">UTTARAKHAND</option>
+                          <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                          <option value="WEST BENGAL">WEST BENGAL</option>
+
+                        </select>
+                      </div>
+                      <div class="col-3">
+                        <label class="fieldlabels1">Select District: *</label>
+                        <select name="district-names" id="district-names">
+                          <option value="">Select District</option>
+                        </select>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <label class="fieldlabels">Address: *</label>
+                          <textarea name="address" id="address" class="form-control address-field" required="required" maxlength="500" data-bv-nonempty-message="Address is required" data-bv-field="address"></textarea>
+
+                        </div>
+                        <div class="col-3">
+                          <label class="fieldlabels">Pincode: *</label>
+                          <input type="text" name="pincode" placeholder="Pincode" maxlength="6" required />
+                        </div>
+                      </div>
+                </div>
+                <input type="button" name="next" class="next action-button" style="margin-right: 200px; border-radius: 24px;" value="Next" />
+              </fieldset>
+
+            <!-- Startup Details & Bank Details -->
+            <fieldset>
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Organization Details</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 2 - 4</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <label class="fieldlabels">Organization Name: *</label>
+                    <input type="text" name="organization_name" placeholder="Organization Name" required />
+                  </div>
+                  <div class="col-5">
+                    <label class="fieldlabels">Organization Type: *</label>
+                    <select name="Organization_type" placeholder="Organization Type" required>
+                      <option value="">Select Type</option>
+                      <option value="">Government</option>
+                      <option value="">Private</option>
+                      <option value="">Individual</option>
+                      <option value="">Startup Challenge</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <label class="fieldlabels">Head of the Organization: *</label>
+                    <input type="name" name="head_organization" placeholder="Contact No." required />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <label class="fieldlabels">Organization Contact No: *</label>
+                    <input type="number" name="phno" placeholder="Contact No." required />
+                  </div>
+                  <div class="col-5">
+                    <label class="fieldlabels">Budget:</label>
+                    <input type="number" name="budget" placeholder="Budget" />
+                  </div> 
+                </div>
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Bank Details</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <label class="fieldlabels">Name as per the bank account: *</label>
+                    <input type="name" name="account_user_name" placeholder="" required />
+                  </div>
+                  <div class="col-5">
+                    <label class="fieldlabels">Account Number: *</label>
+                    <input type="number" name="account_number" placeholder="" required />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <label class="fieldlabels">Bank Name: *</label>
+                    <input type="name" name="bank_name" placeholder="" required />
+                  </div>
+                  <div class="col-5">
+                    <label class="fieldlabels">Branch Name: *</label>
+                    <input type="text" name="branch_name" placeholder="" required />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <label class="fieldlabels">IFSC Code: *</label>
+                    <input type="text" name="ifsc_code" placeholder="" required />
+                  </div>
+                  <div class="col-5">
+                    <label class="fieldlabels">MICR Code:</label>
+                    <input type="text" name="micr_code" placeholder="" />
+                  </div> 
+                </div>   
+              </div>
+              <input type="button" name="next" class="next action-button" style="margin-right: 200px; border-radius: 24px;" value="Next" />
+              <input type="button" name="previous" class="previous action-button-previous" style=" border-radius: 24px;" value="Previous" />
+            
+            </fieldset>
+
+            <!-- Verification -->
+            <fieldset>
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title">Verification</h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 3 - 4</h2>
+                  </div>
+                </div>
+                <label class="fieldlabels">Upload Your Photo:</label>
+                <input type="file" name="pic" accept="image/*" required>
+                <label class="fieldlabels">Upload Signature Photo:</label>
+                <input type="file" name="signature" accept="image/*" required>
+              </div>
+              <input type="button" name="next" class="next action-button"  style="margin-right: 200px; border-radius: 24px;" value="Submit" />
+              <input type="button" name="previous" class="previous action-button-previous" style="border-radius: 24px;" value="Previous" />
+            </fieldset>
+
+            <!-- Face Recognition -->
+            <fieldset>
+              <div class="form-card">
+                <div class="row">
+                  <div class="col-7">
+                    <h2 class="fs-title"></h2>
+                  </div>
+                  <div class="col-5">
+                    <h2 class="steps">Step 4 - 4</h2>
+                  </div>
+                </div>
+                <h2 class="blue-text text-center"><strong>Application Submitted!</strong></h2>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <img src="/assets/Done.png" class="fit-image">
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-7 text-center">
+                    <h5 class="blue-text text-center">Wait for Approval.</h5>
+                  </div>
+                </div>
+                <div class="row justify-content-center" style="margin-top: 20px;">
+                  <div class="col-7 input-group mb-3">
+                    <button name="new_application" class="btn btn-lg btn-primary w-100 fs-6 previous action-button-previous" style="border-radius: 24px;" onclick="window.location.href='/index.html'"  value="Home"> Back Home </button>
+                    <button name="new_application" class="btn btn-lg btn-primary w-100 fs-6 previous action-button-previous" style="border-radius: 24px; background-color: blue;" onclick="window.location.href='/registrationPage/registration.html'"  value="New Application"> + New Application </button>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="contact" style="background-color: #ccedfc;">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <div class="footer__logo">
+          <a href="#" class="logo">
+              <img style="height: 50%; width: 50%;" src="/assets/yojanamanch_logo_copy.png" alt="">
+          </a>
+        </div>
+        <p>
+          YojanaManch is a platform for government officials to collaborate, discuss, 
+          and streamline plans and workflows, fostering unified governance for coordinated 
+          progress under the vision "समान सोच, संगठित विकास."
+        </p>
+        <ul class="footer__socials">
+          <li>
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ri-instagram-line"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="ri-youtube-line"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Chat</a></li>
+          <li><a href="#">Request</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact Us</h4>
+        <ul class="footer__links">
+          <li>
+            <a href="#">
+              <span><i class="ri-phone-fill"></i></span> +91 9876543210
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><i class="ri-record-mail-line"></i></span> info@yojanamanch
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><i class="ri-map-pin-2-fill"></i></span> New Delhi, India
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Subscribe</h4>
+        <form action="/">
+          <input type="text" placeholder="Enter your email" />
+          <button class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bar" style="margin-top: -55px">
+      Copyright © 2024 YojanaManch. All rights reserved.
+    </div>
+  </footer>
+<script src="./js/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/scripts.min.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="/registrationPage/script.js"></script>
+  <script src="/registrationPage/rollDown.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>

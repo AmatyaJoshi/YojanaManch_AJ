@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">     
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <link rel="stylesheet" href="/styles.css" />
+        <link rel="stylesheet" href="/request/request.css">
+        <link rel="stylesheet" href="https://api.maptiler.com/maps/streets/style.css" />
+        <title>YojanaManch</title>
+        <style>
+          #map {
+          height: 400px; /* Set the height of the map */
+          width: 100%; /* Set the width of the map */
+          border-radius: 8px; /* Optional: add some border radius */
+          margin-top: 20px; /* Optional: add some margin */
+      }
+        </style>       
+</head>
+<body>
+  <div style="background-color: white; width: 100%; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;" class="nav-container">
+    <nav>
+        <div  class="nav__header">
+          <div class="nav__logo">
+            <a href="#" class="logo">
+              <img class="logo_img" style="height: 80%; width: 80%;" src="/assets/yojanamanch_logo_copy.png" alt="yojanamanch_logo">
+            </a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="/index.html">HOME</a></li>
+            <li><a href="/dashboard/dashboard.html">DASHBOARD</a></li>
+            <li><a href="/request/request.html">REQUEST</a></li>
+            <li><a href="/projects/projects.html">PROJECTS</a></li>
+            <li><a href="/contactPage/contact_faq.html">CONTACT</a></li>
+            <li><a href="/help.html">HELP</a></li>
+        </ul>
+        <div class="nav__btns">
+          <form action="/registrationPage/registration.html">
+              <button class="btn">REGISTER</button>
+          </form>
+          <form action="/loginPage/login_page.html">
+            <button style="margin-left: 10px;" class="btn">LOGIN</button>
+          </form>
+        </div>
+      </nav>
+</div>
+    <div class="container form-container">
+      <form id="project-form">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+  
+        <!-- Step 1: Personal Information -->
+        <fieldset class="form-step">
+          <legend>Organization Head Personal Information</legend>
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" name="fname" class="short-input">
+          
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" name="lname">
+          
+          <label for="orgname">Organization Name:</label>
+          <input type="text" id="orgname" name="orgname">
+        </fieldset>
+  
+        <!-- Step 2: Organization & Project Details -->
+        <fieldset class="form-step">
+          <legend>Organization & Project Details</legend>
+          <label for="org-type">Type of Organization:</label>
+          <select id="org-type" name="org-type">
+            <option value="pp">PP</option>
+            <option value="cpwd">CPWD</option>
+            <option value="ircc">IRCC</option>
+            <option value="ircc">PWD</option>
+            <option value="ircc">NGO</option>
+            <option value="ircc">NPCC</option>
+          </select>
+          
+          <label for="project-type">Type of Project:</label>
+          <select id="project-type" name="project-type">
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial</option>
+            <option value="commercial">Industrial</option>
+            <option value="commercial">Infrastructural</option>
+          </select>
+  
+          <label for="duration">Duration (in months):</label>
+          <input type="number" id="duration" name="duration">
+          
+          <label for="budget">Budget Expenditure:</label>
+          <input type="text" id="budget" name="budget">
+        </fieldset>
+
+        <fieldset class="form-step">
+          <legend>Location of the Project</legend>
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" >
+          <iframe id="map" src="https://api.maptiler.com/maps/streets-v2/?key=R1DxlxTDXHOfk62TL9QE#1.0/0.00000/0.00000" frameborder="0" allowfullscreen></iframe>
+        </fieldset>
+  
+        <!-- Step 3: Project Documents -->
+        <fieldset class="form-step">
+          <legend>Project Documents</legend>
+          <label for="docs">Upload Documents (Word/PDF/Image):</label>
+          <input type="file" id="docs" name="docs" multiple>
+          <br>
+          <label for="collab-orgs">Collaborative Organizations:</label>
+          <input type="text" id="collab-orgs" name="collab-orgs">
+        </fieldset>
+  
+        <!-- Step 4: Raw Materials -->
+        <fieldset class="form-step">
+          <legend>Raw Materials</legend>
+          <label for="raw-materials">Raw Materials Used:</label>
+          <textarea id="raw-materials" name="raw-materials"></textarea>
+  
+          <label for="raw-material-cost">Cost of Raw Materials:</label>
+          <input type="number" id="raw-material-cost" name="raw-material-cost">
+  
+          <label for="dealer-info">Dealer Information:</label>
+          <textarea id="dealer-info" name="dealer-info"></textarea>
+        </fieldset>
+
+        <fieldset class="form-step">
+          <legend>Description</legend>
+          <label for="description">Project Description:</label>
+          <textarea id="description" name="description" id=""></textarea>
+          <label for="outcomes">Outcomes:</label>
+          <textarea name="outcomes" id="outcomes"></textarea>
+        </fieldset>
+  
+        <!-- Step 5: Digital Signature -->
+        <fieldset class="form-step">
+          <legend>Digital Signature</legend>
+          <label for="signature">Upload Digital Signature:</label>
+          <input type="file" id="signature" name="signature">
+        </fieldset>
+  
+        <div class="form-actions">
+          <button type="button" id="prev-btn" class="btn">Previous</button>
+          <button type="button" id="next-btn" class="btn">Next</button>
+          <button type="submit" id="submit-btn" class="btn" style="display: none;">Submit Application</button>
+        </div>
+      </form>
+    </div>
+    <footer id="contact" style="background-color: white;">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="/index.html" class="logo">
+                <img style="height: 50%; width: 50%;" src="/assets/yojanamanch_logo_copy.png" alt="">
+            </a>
+          </div>
+          <p>
+            YojanaManch is a platform for government officials to collaborate, discuss, 
+            and streamline plans and workflows, fostering unified governance for coordinated 
+            progress under the vision "समान सोच, संगठित विकास."
+          </p>
+          <ul class="footer__socials">
+            <li>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-instagram-line"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-youtube-line"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Chat</a></li>
+            <li><a href="#">Request</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="#">
+                <span><i class="ri-phone-fill"></i></span> +91 9876543210
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-record-mail-line"></i></span> info@yojanamanch
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-map-pin-2-fill"></i></span> New Delhi, India
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Subscribe</h4>
+          <form action="/">
+            <input type="text" placeholder="Enter your email" />
+            <button class="btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bar" style="margin-top: -55px">
+        Copyright © 2024 YojanaManch. All rights reserved.
+      </div>
+    </footer>
+  <script src="/request/script.js"></script>
+  <script src="https://api.maptiler.com/maps/streets/tiles.json?key=R1DxlxTDXHOfk62TL9QE"></script>
+  <script src="https://api.maptiler.com/maps/streets/tiles.js"></script>
+  <script>
+      // Initialize the map
+      const map = new maptiler.Map({
+          container: 'map', // ID of the container
+          style: 'https://api.maptiler.com/maps/streets/style.json?key=R1DxlxTDXHOfk62TL9QE', // Style URL
+          center: [77.2090, 28.6139], // [longitude, latitude] for New Delhi
+          zoom: 10 // Initial zoom level
+      });
+
+      // Add a marker at the default location
+      const marker = new maptiler.Marker()
+          .setLngLat([77.2090, 28.6139]) // [longitude, latitude]
+          .addTo(map);
+  </script>
+   <script>
+    // Function to update the map based on the input location
+    document.getElementById('showMapBtn').addEventListener('click', function() {
+        const locationInput = document.getElementById('location').value;
+        const mapIframe = document.getElementById('map');
+
+        if (locationInput) {
+            // Replace spaces with "+" for the URL
+            const formattedLocation = locationInput.replace(/ /g, '+');
+            // Update the src of the iframe to show the location on MapTiler
+            mapIframe.src = `https://api.maptiler.com/maps/streets/?key=YOUR_MAPTILER_API_KEY&search=${formattedLocation}`;
+            mapIframe.style.display = 'block'; // Show the map iframe
+        } else {
+            alert("Please enter a location.");
+        }
+    });
+</script>
+</body>
+</html>

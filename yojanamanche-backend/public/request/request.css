@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #ccedfc;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.form-container {
+  flex: content;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.progress-container {
+  height: 5px;
+  background-color: #f3f3f3;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border: none;
+  padding: 15px;
+  margin: 20px 0;
+  display: none;
+}
+
+fieldset.active {
+  display: block;
+}
+
+fieldset legend {
+  font-weight: 800;
+  font-size: larger;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button[type="reset"] {
+  background-color: #f44336;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.short-input {
+  width: 48%;
+  display: inline-block;
+  margin-right: 4%;
+}
+
+.short-input:last-child {
+  margin-right: 0;
+}
+

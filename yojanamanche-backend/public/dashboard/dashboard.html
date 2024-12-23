@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Dashboard - YojanaManch</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div style="background-color: white; width: 100%; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;" class="container">
+    <nav>
+        <div  class="nav__header">
+          <div class="nav__logo">
+            <a href="#" class="logo">
+              <img class="logo_img" style="height: 80%; width: 80%;" src="/assets/yojanamanch_logo_copy.png" alt="yojanamanch_logo">
+            </a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+            <li><a href="/index.html">HOME</a></li>
+            <li><a href="/dashboard/dashboard.html">DASHBOARD</a></li>
+            <li><a href="/request/request.html">REQUEST</a></li>
+            <li><a href="/projects/projects.html">PROJECTS</a></li>
+            <li><a href="/contactPage/contact_faq.html">CONTACT</a></li>
+            <li><a href="/help.html">HELP</a></li>
+        </ul>
+        <div class="nav__btns">
+          <form action="/registrationPage/registration.html">
+              <button class="btn">REGISTER</button>
+          </form>
+          <form action="/loginPage/login_page.html">
+            <button style="margin-left: 10px;" class="btn">LOGIN</button>
+          </form>
+        </div>
+      </nav>
+</div>
+
+    <div class="container">
+        <div class="dashboard-content">
+            <div class="dashboard-heading">
+            <h2>Dashboard</h2>
+            <p>Here you can manage your projects, view statistics, and access various tools.</p>
+            </div>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Total Projects</h3>
+                    <p>50</p>
+                </div>
+                <div class="card">
+                    <h3>Active Projects</h3>
+                    <p>30</p>
+                </div>
+                <div class="card">
+                    <h3>Completed Projects</h3>
+                    <p>20</p>
+                </div>
+            </div>
+
+            <h2>Project Statistics</h2>
+            <div class="chart-container">
+                <canvas id="projectBarChart"></canvas>
+            </div>
+
+            <h2>Project Trends</h2>
+            <div class="chart-container">
+                <canvas id="projectLineChart"></canvas>
+            </div>
+
+            <h2>Donut Graphs</h2>
+            <div class="donut-chart">
+                <canvas id="donutChart1"></canvas>
+                <canvas id="donutChart2"></canvas>
+                <canvas id="donutChart3"></canvas>
+            </div>
+
+            <h2 style="margin-top: 50px;">Recent Activities</h2>
+            <ul class="recent-activities">
+                <li>Project "Metro Project" updated on 2024-10-01</li>
+                <li>New project "Ganga Expressway" added on 2024-09-28</li>
+                <li>Project "Smart City Development" completed on 2024-09-25</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer id="contact" style="background-color: var(--extra-light);">
+        <div class="section__container footer__container">
+          <div class="footer__col">
+            <div class="footer__logo">
+              <a href="/index.html" class="logo">
+                  <img style="height: 50%; width: 50%;" src="/assets/yojanamanch_logo_copy.png" alt="">
+              </a>
+            </div>
+            <p>
+              YojanaManch is a platform for government officials to collaborate, discuss, 
+              and streamline plans and workflows, fostering unified governance for coordinated 
+              progress under the vision "समान सोच, संगठित विकास."
+            </p>
+            <ul class="footer__socials">
+              <li>
+                <a href="#"><i class="ri-facebook-fill"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="ri-instagram-line"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="ri-youtube-line"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Quick Links</h4>
+            <ul class="footer__links">
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Chat</a></li>
+              <li><a href="#">Request</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Contact Us</h4>
+            <ul class="footer__links">
+              <li>
+                <a href="#">
+                  <span><i class="ri-phone-fill"></i></span> +91 9876543210
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span><i class="ri-record-mail-line"></i></span> info@yojanamanch
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span><i class="ri-map-pin-2-fill"></i></span> New Delhi, India
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Subscribe</h4>
+            <form action="/">
+              <input type="text" placeholder="Enter your email" />
+              <button class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer__bar" style="margin-top: -55px">
+          Copyright © 2024 YojanaManch. All rights reserved.
+        </div>
+      </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/dashboard/dashboard.js"></script>
+</body>
+</html>

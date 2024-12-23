@@ -1,0 +1,111 @@
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(179, 220, 228, 0.315);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.filter-box {
+  width: 350px;
+  margin-right: 50px;
+  margin-left: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-box h3 {
+  margin-top: 0;
+}
+
+.filter-box input,
+.filter-box select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.search-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #8fd6ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.clear-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.clear-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Projects List Styling */
+.project-list {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
+.project-card {
+  width: 250px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.project-card p {
+  color: #777;
+}
+
+.project-card h4{
+  font-weight: bold;
+}
+
+.project-details {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
